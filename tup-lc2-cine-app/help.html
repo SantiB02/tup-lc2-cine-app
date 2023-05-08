@@ -7,6 +7,7 @@
   <title>TUP LC2 - TP Integrador</title>
   <!-- Estilos CSS -->
   <link rel="stylesheet" href="css/common.css"/>
+  <link rel="stylesheet" href="css/pages/help.css"/>
 </head>
 
 <body>
@@ -29,11 +30,29 @@
     <section id="sec_ayuda">
       <!-- Sección de texto de ayuda-->
       <h2>Ayuda Cine App v.1</h2>
+      <p>Esta App te permite consultar la cartelera de cine utilizando la API de <a href="https://www.themoviedb.org/documentation/api" target="_blank">The movie database API.</a></p>
+      <p>Para poder registrar sus películas favoritas deberá <a href="index.html">Agregar Favorito</a> desde la cartelera y luego visualizar nuestros favoritos desde <a href="favorities.html">Mis Favoritas.</a> <br>
+      Si tiene alguna sugerencia o inconveniente por favor complete el siguiente formulario y envíenoslo. Lo contactaremos a la brevedad.</p>
     </section>
     <section id="form-cine_contacto">
       <!-- Sección donde se debe colocar el formulario de contacto-->
       <form>
-
+        <div>
+          <p><label for="nombre"><b>Nombre:</b></label></p>
+          <input type="text" name="datos" id="nombre">
+        </div>
+        <div>
+          <p><label for="email"><b>Email:</b></label></p>
+          <input type="email" name="datos" id="email">
+        </div>
+        <div>
+          <p><label for="texto"><b>Mensaje:</b></label></p>
+          <textarea name="texto" id="texto"></textarea>
+        </div>
+        <div>
+          <button type="reset">Limpiar</button>
+          <button type="submit">Enviar</button>
+        </div>
       </form>
     </section>
     <section id="sec-cine-result"></section>
