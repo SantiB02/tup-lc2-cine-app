@@ -31,12 +31,12 @@
       <!-- Sección de texto de ayuda-->
       <h2>Ayuda Cine App v.1</h2>
       <p>Esta App te permite consultar la cartelera de cine utilizando la API de <a href="https://www.themoviedb.org/documentation/api" target="_blank">The movie database API.</a></p>
-      <p>Para poder registrar sus películas favoritas deberá <a href="index.html">Agregar Favorito</a> desde la cartelera y luego visualizar nuestros favoritos desde <a href="favorities.html">Mis Favoritas.</a> <br>
-      Si tiene alguna sugerencia o inconveniente por favor complete el siguiente formulario y envíenoslo. Lo contactaremos a la brevedad.</p>
+      <p>Para poder registrar sus películas favoritas deberá <a href="index.html">Agregar Favorito</a> desde la cartelera y luego visualizar nuestros favoritos desde <a href="favorities.html">Mis Favoritas.</a> </p>
+      <p>Si tiene alguna sugerencia o inconveniente por favor complete el siguiente formulario y envíenoslo. Lo contactaremos a la brevedad.</p>
     </section>
     <section id="form-cine_contacto">
       <!-- Sección donde se debe colocar el formulario de contacto-->
-      <form>
+      <form id="help-form">
         <div>
           <p><label for="nombre"><b>Nombre:</b></label></p>
           <input type="text" name="datos" id="nombre">
@@ -49,7 +49,7 @@
           <p><label for="texto"><b>Mensaje:</b></label></p>
           <textarea name="texto" id="texto"></textarea>
         </div>
-        <div>
+        <div id="botones-form">
           <button type="reset">Limpiar</button>
           <button type="submit">Enviar</button>
         </div>

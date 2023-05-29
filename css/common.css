@@ -20,6 +20,7 @@
   --color-success: #28a745; /*Colores para los mensajes al usuario*/
   --color-warning: #ffc107;
   --color-error: #dc3545;
+  --color-form-button: #1c5b45;
 }
 body {
   height: 100%;
@@ -131,7 +132,7 @@ main section {
 }
 
 .pelicula .button {
-  color: white;
+  color: var(--color-texto-blanco);
   font-weight: bold;
   border-radius: 20px;
 }
