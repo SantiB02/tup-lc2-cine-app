@@ -1,0 +1,14 @@
+.contenedorPeliculasFavoritas {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    justify-content: center;
+    align-content: center;
+    width: 100%;
+    max-width: 1000px;
+}
+
+.contenedorPeliculasFavoritas img {
+    width: 100%;
+    margin-bottom: 10px;
+    border-radius: 15px;
+}
