@@ -1,0 +1,96 @@
+body {
+    font-family: "Montserrat", sans-serif;
+    background-color: #e0e0e0;
+    color: #1d1d1d;
+}
+
+h2 {
+    text-shadow: gray 2px 3px 5px;
+}
+
+.contenedorPeliculas {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    justify-content: center;
+    align-content: center;
+    width: 100%;
+    max-width: 1000px;
+}
+
+.contenedorPeliculas img {
+    width: 100%;
+    margin-bottom: 10px;
+    border-radius: 15px;
+}
+
+.pelicula p {
+    font-size: 12px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.pelicula h3 {
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.paginacion {
+    position: ;
+    bottom: ;
+    width: ;
+    display: ;
+    justify-content: ;
+    gap: ;
+    padding: ;
+}
+
+.paginacion button {
+    cursor: ;
+    border: ;
+    display: ;
+    align-items: ;
+    justify-content: ;
+    text-align: ;
+    height: ;
+    width: ;
+    background-color: #;
+    color: #;
+    border-radius: ;
+    font-family: ;
+    font-weight: ;
+    transition: .3s ease all;
+}
+
+.paginacion button:hover {
+    background-color: var(--color-back-active);
+}
+
+
+/*Estilos Generales Botones Favoritos*/
+.button {
+    background: #7f8c8d;
+    color: #;
+    display: ;
+    font-size: ;
+    margin: ;
+    padding: 10px 0;
+    text-align: center;
+    width: 200px;
+    text-decoration: none;
+    box-shadow: 0px 3px 0px #373c3c;
+}
+
+.button span {
+    margin-right: 10px;
+}
+
+.button.medium {
+    width: 150px;
+}
+
+.button.radius {
+    border-radius: 50px;
+}
+
+.button:hover {
+    box-shadow: 0px 0px 0px;
+}

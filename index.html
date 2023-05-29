@@ -6,16 +6,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>TUP LC2 - TP Integrador - Cine</title>
   <!-- Estilos CSS -->
-  <link rel="stylesheet" href="css/common.css" />
-  <link rel="stylesheet" href="css/pages/index.css" />
+  <link rel="stylesheet" href="css/common.css"/>
+  <link rel="stylesheet" href="css/pages/index.css"/>
 </head>
 
 <body>
   <header>
-    <h1>
-      <!--Titulo Cabecera-->
-      <span>Cartelera de Cine</span>
-    </h1>
+    <div class="header-top">
+      <img src="img/IconoCine.png" alt="Icono cine">
+      <h1>
+        <!--Titulo Cabecera-->
+        Cartelera de Cine
+      </h1>
+    </div>
     <nav>
       <!--Menu Superior-->
       <ul>
@@ -29,6 +32,7 @@
   <main>
     <h2>Últimas Películas en Cartelera</h2>
     <section id="form-movie-new">
+      <p>Agregar Película Favorita por Código:</p>
       <!--Seccion para agregar una pelicula favorita por codigo-->
       <form>
         <input type="text" name="" id="">
@@ -37,20 +41,21 @@
     </section>
     <section id="sec-messages">
       <!--Seccion para mensajes-->
-      <p>Película agregada con éxito</p>
-      <p>Error: La Película seleccionada no se encuentra en la API o se produjo un error al consultar</p>
-      <p>La Película ingresada ya se encuentra almacenada</p>
+      <p class="mensaje-success">Película agregada con éxito</p>
+      <p class="mensaje-error">Error: La Película seleccionada no se encuentra en la API o se produjo un error al consultar</p>
+      <p class="mensaje-warning">La Película ingresada ya se encuentra almacenada</p>
     </section>
     <section id="sec_peliculas">
       <!--Seccion visualizacion de peliculas-->
       <div class="contenedorPeliculas" id="contenedorPeliculas">
-        <img src="https://image.tmdb.org/t/p/w500//fcFMd3HdyX7r5gtFwVnn2qr5Yhq.jpg" alt="">
-        <h3>Creed III</h3>
-        <p><b>Código:</b> 677179</p>
-        <p><b>Título original:</b> Creed III</p>
-        <p><b>Idioma original:</b> en</p>
-        <p><b>Año:</b> 2023-03-01</p>
-        <a href="favorities.html">Agregar a Favoritos</a>
+        <div class="pelicula">
+          <img src="https://image.tmdb.org/t/p/w500//fcFMd3HdyX7r5gtFwVnn2qr5Yhq.jpg" alt="">
+          <h3>Creed III</h3>
+          <p><b>Código:</b> 677179</p>
+          <p><b>Título original:</b> Creed III</p>
+          <p><b>Idioma original:</b> en</p>
+          <p><b>Año:</b> 2023-03-01</p>
+        </div>
       </div>
     </section>
     <section id="sec_paginador_peliculas">
