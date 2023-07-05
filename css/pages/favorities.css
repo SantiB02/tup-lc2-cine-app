@@ -1,10 +1,16 @@
+#sec-favorities-list {
+    display: flex;
+    justify-content: center;
+}
+
 .contenedorPeliculasFavoritas {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    justify-content: center;
+    justify-content: space-between;
     align-content: center;
     width: 100%;
-    max-width: 1000px;
+    max-width: 500px;
+    column-gap: 60px;
 }
 
 .contenedorPeliculasFavoritas img {

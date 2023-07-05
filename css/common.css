@@ -26,6 +26,12 @@ body {
   height: 100%;
   width: 100%;
 }
+.mensajes {
+  width: 50%;
+  border-radius: 15px;
+  padding: 18px 30px;
+  color: var(--color-texto-blanco);
+}
 .mensaje-success {
   background-color: var(--color-success);
 }
@@ -121,6 +127,11 @@ main section {
   display: block;
   text-align: center;
 }
+
+.pelicula {
+  margin: 20px;
+}
+
 .pelicula p {
   font-size: 12px;
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
