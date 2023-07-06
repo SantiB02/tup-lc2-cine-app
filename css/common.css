@@ -128,8 +128,23 @@ main section {
   text-align: center;
 }
 
+.loadMessage {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.loadMessage p {
+  margin-top: 100px;
+  margin-bottom: 0px;
+}
+
+.loadMessage img {
+  width: 200px;
+}
+
 .pelicula {
-  margin: 20px;
+  margin: 30px 20px;
 }
 
 .pelicula p {
@@ -234,4 +249,30 @@ main p {
 }
 .verde{
   background-color:#28a745;
+}
+
+/*Estilos Generales Botones Favoritos*/
+.button {
+  background: #7f8c8d;
+  padding: 10px 10px;
+  text-align: center;
+  width: 200px;
+  text-decoration: none;
+  box-shadow: 0px 3px 0px #373c3c;
+}
+
+.button span {
+  margin-right: 10px;
+}
+
+.button.medium {
+  width: 150px;
+}
+
+.button.radius {
+  border-radius: 50px;
+}
+
+.button:hover {
+  box-shadow: 0px 0px 0px;
 }

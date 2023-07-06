@@ -61,34 +61,3 @@ body {
 .paginacion button:hover {
     background-color: var(--color-back-active);
 }
-
-
-/*Estilos Generales Botones Favoritos*/
-.button {
-    background: #7f8c8d;
-    color: #;
-    display: ;
-    font-size: ;
-    margin: ;
-    padding: 10px 0;
-    text-align: center;
-    width: 200px;
-    text-decoration: none;
-    box-shadow: 0px 3px 0px #373c3c;
-}
-
-.button span {
-    margin-right: 10px;
-}
-
-.button.medium {
-    width: 150px;
-}
-
-.button.radius {
-    border-radius: 50px;
-}
-
-.button:hover {
-    box-shadow: 0px 0px 0px;
-}
