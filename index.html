@@ -54,25 +54,14 @@
     <section id="sec_peliculas">
       <!--Seccion visualizacion de peliculas-->
       <div class="contenedorPeliculas" id="contenedorPeliculas">
-        <div class="pelicula">
-          <!--ACÁ SE CARGA EL CONTENIDO DE LA PELI DESDE LA API-->
-        </div>
-        <div class="pelicula">
-          
-        </div>
-        <div class="pelicula">
-          
-        </div>
-        <div class="pelicula">
-          
-        </div>
+        <!--ACÁ SE CARGAN 20 DIVS DE PELIS DESDE LA API-->
       </div>
     </section>
     <section id="sec_paginador_peliculas">
       <!--Seccion de Paginacion-->
       <div class="paginacion" id="paginacion">
-        <button id="btnAnterior">Anterior</button>
-        <button id="btnSiguiente">Siguiente</button>
+        <button id="btnAnterior" class="btnDisabled" disabled onclick="volverPagina()">Anterior</button>
+        <button id="btnSiguiente" onclick="pasarPagina()">Siguiente</button>
       </div>
     </section>
 

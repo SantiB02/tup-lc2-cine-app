@@ -32,30 +32,36 @@ body {
 
 
 .paginacion {
-    position: ;
-    bottom: ;
-    width: ;
-    display: ;
-    justify-content: ;
-    gap: ;
-    padding: ;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 0 20px;
+    margin-top: 10px;
+    margin-bottom: 30px;
 }
 
 .paginacion button {
-    cursor: ;
-    border: ;
-    display: ;
-    align-items: ;
-    justify-content: ;
-    text-align: ;
-    height: ;
-    width: ;
-    background-color: #;
-    color: #;
-    border-radius: ;
-    font-family: ;
-    font-weight: ;
+    cursor: pointer;
+    border: 0;
+    text-align: center;
+    height: 50px;
+    width: 190px;
+    background-color: var(--color-paginacion);
+    color: var(--color-texto-blanco);
+    border-radius: 40px;
+    font-family: sans-serif;
+    font-weight: bold;
     transition: .3s ease all;
+}
+
+.paginacion .btnDisabled {
+    color: #a4a2a2;
+    background-color: #4e4f51;
+    cursor: default;
+}
+
+.paginacion .btnDisabled:hover {
+    background-color: #4e4f51;
 }
 
 .paginacion button:hover {
