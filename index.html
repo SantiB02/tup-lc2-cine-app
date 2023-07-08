@@ -36,7 +36,7 @@
     <section id="form-movie-new">
       <p>Agregar Película Favorita por Código:</p>
       <!--Seccion para agregar una pelicula favorita por codigo-->
-      <form>
+      <form onsubmit="return false;">
         <input type="text" name="codigoPeli" id="codigoPeli">
         <input type="button" onclick="agregarFav_codigo()" value="Agregar">
       </form>
@@ -47,9 +47,10 @@
     </div>
     <section id="sec-messages" style="display: none;">
       <!--Seccion para mensajes-->
-      <p class="mensaje-success mensajes" style="display: none;">Película agregada con éxito</p>
-      <p class="mensaje-error mensajes" style="display: none;">Error: La Película seleccionada no se encuentra en la API o se produjo un error al consultar</p>
-      <p class="mensaje-warning mensajes" style="display: none;">La Película ingresada ya se encuentra almacenada</p>
+      <p class="mensaje-success mensajes" id="msjExito" style="display: none;">Película agregada con éxito</p>
+      <p class="mensaje-error mensajes" id="msjErrorConsulta" style="display: none;">Error: La Película seleccionada no se encuentra en la API o se produjo un error al consultar</p>
+      <p class="mensaje-error mensajes" id="msjErrorNumerico" style="display: none;">Error: El valor ingresado debe ser numérico</p>
+      <p class="mensaje-warning mensajes" id="msjPeliExistente" style="display: none;">La Película ingresada ya se encuentra almacenada</p>
     </section>
     <section id="sec_peliculas">
       <!--Seccion visualizacion de peliculas-->
