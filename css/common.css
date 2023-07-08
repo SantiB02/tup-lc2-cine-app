@@ -145,7 +145,7 @@ main section {
 }
 
 .pelicula {
-  margin: 30px 20px;
+  margin: 20px;
 }
 
 .pelicula p {
@@ -254,6 +254,7 @@ main p {
 
 /*Estilos Generales Botones Favoritos*/
 .button {
+  cursor: pointer;
   background: #7f8c8d;
   padding: 10px 10px;
   text-align: center;

@@ -6,5 +6,8 @@ function mostrarSpinner() {
 }
 
 function eliminarSpinner() {
-    spinnerDiv.style.display = 'none';
+    setTimeout(() => {
+        spinnerDiv.style.display = 'none';
+        contenedorPeliculas.style.display = 'grid';
+    }, 3000);
 }
