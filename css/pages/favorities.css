@@ -9,12 +9,16 @@
     justify-content: space-between;
     align-content: center;
     width: 100%;
-    max-width: 500px;
-    column-gap: 60px;
+    max-width: 1000px;
 }
 
 .contenedorPeliculasFavoritas img {
     width: 100%;
     margin-bottom: 10px;
     border-radius: 15px;
+    max-width: 250px;
+}
+
+#messages-fav {
+    margin-top: 100px;
 }

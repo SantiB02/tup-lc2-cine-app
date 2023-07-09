@@ -6,7 +6,6 @@ const msjExito = document.getElementById('msjExito');
 const msjErrorConsulta = document.getElementById('msjErrorConsulta');
 const msjErrorNumerico = document.getElementById('msjErrorNumerico');
 const msjPeliExistente = document.getElementById('msjPeliExistente');
-let idsCartelera = []
 let pagina = 1; //pagina en la que estoy (para paginacion)
 
 function statusBtnAnterior(pag) {
@@ -20,9 +19,9 @@ function statusBtnAnterior(pag) {
 }
 
 function requestCartelera(pagina = 1) { //por defecto es 1
-    mostrarSpinner(); //muestro mensaje y spinner de carga
+    contenedorPeliculas.innerHTML = ''; //vacío el contenedor de peliculas por si ya había pelis de otra página
+    mostrarSpinner(spinnerDivCartelera); //muestro mensaje y spinner de carga
     statusBtnAnterior(pagina); //habilito o deshabilito el boton anterior
-    idsCartelera = [] //vacio el array de IDs para guardarle los de la cartelera actual
 
     const options = {
         method: 'GET',
@@ -43,7 +42,6 @@ function requestCartelera(pagina = 1) { //por defecto es 1
                 let poster_path = pelicula.poster_path;
                 let title = pelicula.title;
                 let id = pelicula.id;
-                idsCartelera.push(id); //guardo cada ID en un array (para agregarFav_boton(boton))
                 let original_title = pelicula.original_title;
                 let original_language = pelicula.original_language;
                 let release_date = pelicula.release_date;
@@ -59,7 +57,7 @@ function requestCartelera(pagina = 1) { //por defecto es 1
                 <b>Idioma original:</b> ${original_language}<br>
                 <b>Año:</b> ${release_date}<br></p>
                 </div>
-                <button class="button" data-nro-peli="${i}" onclick="agregarFav_boton(this)">Agregar a Favoritos</button>
+                <button class="button" data-id-peli="${id}" onclick="agregarFav_boton(this)">Agregar a Favoritos</button>
                 `;
                 contenedorPeliculas.appendChild(divPelicula); //le agrego el div con la pelicula al contenedor
             }
@@ -74,8 +72,8 @@ function requestCartelera(pagina = 1) { //por defecto es 1
             seccionMensajes.style.display = 'flex';
         })
         .finally(() => {
-            eliminarSpinner(); //elimino el mensaje de carga porque pude solicitar las pelis (ver common.js)
-          });
+            eliminarSpinner(spinnerDivCartelera, contenedorPeliculas); //elimino el mensaje de carga porque pude solicitar las pelis (ver common.js)
+        });
 }
 
 requestCartelera(); //solicita cartelera a la API de TMDB
@@ -94,37 +92,23 @@ function volverPagina() {
     }
 }
 
-function eliminarMensaje(mensaje) {
+function eliminarMensajeCartelera(mensaje) {
     seccionMensajes.style.display = 'none';
     mensaje.style.display = 'none';
 }
 
-function mostrarMensaje(mensaje) {
+function mostrarMensajeCartelera(mensaje) {
     seccionMensajes.style.display = 'flex';
     mensaje.style.display = 'block';
-    setTimeout(eliminarMensaje, 5000, mensaje);
-
+    setTimeout(eliminarMensajeCartelera, 5000, mensaje);
 }
 
-function traerFavoritosLocal() {
-    let favs = localStorage.getItem('FAVORITOS');
-    if (favs) {
-        return JSON.parse(favs)
-    } else {
-        favs = []
-        return favs
-    }
-}
-
-function guardarFavoritosLocal(favs) {
-    localStorage.setItem('FAVORITOS', JSON.stringify(favs));
-}
 
 function validarRepeticionFav(codigo, favoritos) {
     if (favoritos !== null) {
         for (let i = 0; i < favoritos.length; i++) {
             if (codigo === favoritos[i]) { //valido que la película ya no haya sido ingresada
-                mostrarMensaje(msjPeliExistente);
+                mostrarMensajeCartelera(msjPeliExistente); //funcion en common.js
                 return 0
             }
         }
@@ -144,15 +128,15 @@ function validar_y_Agregar_Peli(id, favoritos) {
         .then(response => {
             if (response.ok) {
                 favoritos.push(id);
-                guardarFavoritosLocal(favoritos);
-                mostrarMensaje(msjExito);
+                guardarFavoritosLocal(favoritos); //en common.js
+                mostrarMensajeCartelera(msjExito); //funcion en common.js
             } else {
-                mostrarMensaje(msjErrorConsulta);
+                mostrarMensajeCartelera(msjErrorConsulta); //funcion en common.js
             }
         })
         .catch(error => {
             console.error(error);
-            mostrarMensaje(msjErrorConsulta);
+            mostrarMensajeCartelera(msjErrorConsulta); //funcion en common.js
         });
 
 }
@@ -161,19 +145,19 @@ function agregarFav_codigo() { //agrega una pelicula a Favoritos ingresando el c
     let codigo = inputCodigo.value; //capturo el codigo ingresado por usuario
 
     if (isNaN(codigo) || codigo === '') { //valido que el valor sea numerico
-        mostrarMensaje(msjErrorNumerico);
+        mostrarMensajeCartelera(msjErrorNumerico); //funcion en common.js
         return //salgo de la función si hay error
     }
-    let favoritos = traerFavoritosLocal();
+    let favoritos = traerFavoritosLocal(); //en common.js
     if (validarRepeticionFav(codigo, favoritos) !== 0) {
         validar_y_Agregar_Peli(codigo, favoritos);
     }
 }
 
 function agregarFav_boton(boton) { //agrega una pelicula a Favoritos tocando el boton debajo de la peli
-    let nroPeli = boton.getAttribute('data-nro-peli'); //consigo el numero de peli segun el atributo personalizado del boton Agregar a Fav
-    let idPeliClickeada = idsCartelera[nroPeli]; //me paro en el array con todos los IDs en la posicion del boton clickeado
-    let favoritos = traerFavoritosLocal();
+    let idPeliClickeada = boton.getAttribute('data-id-peli'); //consigo el numero de peli segun el atributo personalizado del boton Agregar a Fav
+    let favoritos = traerFavoritosLocal(); //en common.js
+    
     if (validarRepeticionFav(idPeliClickeada, favoritos) !== 0) {
         validar_y_Agregar_Peli(idPeliClickeada, favoritos);
     }

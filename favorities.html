@@ -33,50 +33,17 @@
   <!-- Contenido principal de la página -->
   <main>
     <h2>Mis Peliculas Favoritas</h2>
+    <div class="loadMessage" id="spinnerDivFavoritos" style="display: none;">
+      <p>Cargando películas... Aguarde un momento</p>
+      <img src="img/Spinner-1s-200px.gif" alt="spinner GIF">
+    </div>
+    <section id="messages-fav" class="sec-messages" style="display: none;">
+      <p class="mensaje-warning mensajes" id="msjEmptyFavs" style="display: none;">No tiene películas seleccionadas en sus favoritos</p>
+    </section>
     <section id="sec-favorities-list">
-      <!--Sección contenido de paliculas favoritas-->
+      <!--Sección contenido de peliculas favoritas-->
       <div class="contenedorPeliculasFavoritas" id="contenedorPeliculasFavoritas">
-        <div class="pelicula">
-          <img src="https://image.tmdb.org/t/p/w500//fcFMd3HdyX7r5gtFwVnn2qr5Yhq.jpg" alt="">
-          <h3>Creed III</h3>
-          <div class="desc-pelicula">
-            <p><b>Código:</b> 677179</p>
-            <p><b>Título original:</b> Creed III</p>
-            <p><b>Idioma original:</b> en</p>
-            <p><b>Resumen:</b> Adonis Creed ya ha llegado a la cima de su carrera y no tiene nada más que demostrar en el mundo del boxeo. Convertido en un idolo de este boxeo pasa sus días rodeado de su familia y seres queridos. Sin embargo, todo cambiará cuando regrese un fantasma de su infancia. Su amigo de juventud, Damián, acaba de salir de la cárcel y desea demostrar todo lo que aprendido de boxeo estos años. Por ello, querrá enfrentarse en el cuadrilátero con su antiguo amigo. Adonis Creed tendrá que enfrentarse a este adversario, que no solo quiere quitarle su título de boxeador, sino que desea acabar con él.</p>
-          </div>
-          <button class="button" onclick="quitarFav()">Quitar de Favoritos</button>
-        </div>
-        <div class="pelicula">
-          <img src="https://image.tmdb.org/t/p/w500//fcFMd3HdyX7r5gtFwVnn2qr5Yhq.jpg" alt="">
-          <h3>Creed III</h3>
-          <div class="desc-pelicula">
-            <p><b>Código:</b> 677179</p>
-            <p><b>Título original:</b> Creed III</p>
-            <p><b>Idioma original:</b> en</p>
-            <p><b>Resumen:</b> Adonis Creed ya ha llegado a la cima de su carrera y no tiene nada más que demostrar en el mundo del boxeo. Convertido en un idolo de este boxeo pasa sus días rodeado de su familia y seres queridos. Sin embargo, todo cambiará cuando regrese un fantasma de su infancia. Su amigo de juventud, Damián, acaba de salir de la cárcel y desea demostrar todo lo que aprendido de boxeo estos años. Por ello, querrá enfrentarse en el cuadrilátero con su antiguo amigo. Adonis Creed tendrá que enfrentarse a este adversario, que no solo quiere quitarle su título de boxeador, sino que desea acabar con él.</p>
-          </div>
-        </div>
-        <div class="pelicula">
-          <img src="https://image.tmdb.org/t/p/w500//fcFMd3HdyX7r5gtFwVnn2qr5Yhq.jpg" alt="">
-          <h3>Creed III</h3>
-          <div class="desc-pelicula">
-            <p><b>Código:</b> 677179</p>
-            <p><b>Título original:</b> Creed III</p>
-            <p><b>Idioma original:</b> en</p>
-            <p><b>Resumen:</b> Adonis Creed ya ha llegado a la cima de su carrera y no tiene nada más que demostrar en el mundo del boxeo. Convertido en un idolo de este boxeo pasa sus días rodeado de su familia y seres queridos. Sin embargo, todo cambiará cuando regrese un fantasma de su infancia. Su amigo de juventud, Damián, acaba de salir de la cárcel y desea demostrar todo lo que aprendido de boxeo estos años. Por ello, querrá enfrentarse en el cuadrilátero con su antiguo amigo. Adonis Creed tendrá que enfrentarse a este adversario, que no solo quiere quitarle su título de boxeador, sino que desea acabar con él.</p>
-          </div>
-        </div>
-        <div class="pelicula">
-          <img src="https://image.tmdb.org/t/p/w500//fcFMd3HdyX7r5gtFwVnn2qr5Yhq.jpg" alt="">
-          <h3>Creed III</h3>
-          <div class="desc-pelicula">
-            <p><b>Código:</b> 677179</p>
-            <p><b>Título original:</b> Creed III</p>
-            <p><b>Idioma original:</b> en</p>
-            <p><b>Resumen:</b> Adonis Creed ya ha llegado a la cima de su carrera y no tiene nada más que demostrar en el mundo del boxeo. Convertido en un idolo de este boxeo pasa sus días rodeado de su familia y seres queridos. Sin embargo, todo cambiará cuando regrese un fantasma de su infancia. Su amigo de juventud, Damián, acaba de salir de la cárcel y desea demostrar todo lo que aprendido de boxeo estos años. Por ello, querrá enfrentarse en el cuadrilátero con su antiguo amigo. Adonis Creed tendrá que enfrentarse a este adversario, que no solo quiere quitarle su título de boxeador, sino que desea acabar con él.</p>
-          </div>
-        </div>
+        
       </div>
     </section>
      </main>

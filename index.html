@@ -41,11 +41,11 @@
         <input type="button" onclick="agregarFav_codigo()" value="Agregar">
       </form>
     </section>
-    <div class="loadMessage" id="spinnerDiv" style="display: none;">
+    <div class="loadMessage" id="spinnerDivCartelera" style="display: none;">
       <p>Cargando películas... Aguarde un momento</p>
       <img src="img/Spinner-1s-200px.gif" alt="spinner GIF">
     </div>
-    <section id="sec-messages" style="display: none;">
+    <section id="sec-messages" class="sec-messages" style="display: none;">
       <!--Seccion para mensajes-->
       <p class="mensaje-success mensajes" id="msjExito" style="display: none;">Película agregada con éxito</p>
       <p class="mensaje-error mensajes" id="msjErrorConsulta" style="display: none;">Error: La Película seleccionada no se encuentra en la API o se produjo un error al consultar</p>
@@ -55,7 +55,7 @@
     <section id="sec_peliculas">
       <!--Seccion visualizacion de peliculas-->
       <div class="contenedorPeliculas" id="contenedorPeliculas">
-        <!--ACÁ SE CARGAN 20 DIVS DE PELIS DESDE LA API-->
+        <!--ACÁ SE CARGAN DIVS DE PELIS DESDE LA API-->
       </div>
     </section>
     <section id="sec_paginador_peliculas">
