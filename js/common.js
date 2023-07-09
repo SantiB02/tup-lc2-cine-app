@@ -1,5 +1,12 @@
 const spinnerDivCartelera = document.getElementById('spinnerDivCartelera');
 const spinnerDivFavoritos = document.getElementById('spinnerDivFavoritos');
+const options = { //constante options con los datos necesarios para ejecutar cada fetch
+    method: 'GET',
+    headers: {
+        accept: 'application/json',
+        Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIxNGMzYzVmYTllZDg0NjRlOTg1YjAzZGJiNTM3ZGE1ZCIsInN1YiI6IjY0YTYxOGVmMDdmYWEyMDBjN2ViYjI2OSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.o0lBSp1tL3aze0-IU_LRIwpUfqohZKdOzEiPy5xaHU0'
+    }
+};
 
 function mostrarSpinner(spinnerDiv) {
     spinnerDiv.style.display = 'flex';

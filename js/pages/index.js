@@ -23,14 +23,6 @@ function requestCartelera(pagina = 1) { //por defecto es 1
     mostrarSpinner(spinnerDivCartelera); //muestro mensaje y spinner de carga
     statusBtnAnterior(pagina); //habilito o deshabilito el boton anterior
 
-    const options = {
-        method: 'GET',
-        headers: {
-            accept: 'application/json',
-            Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIxNGMzYzVmYTllZDg0NjRlOTg1YjAzZGJiNTM3ZGE1ZCIsInN1YiI6IjY0YTYxOGVmMDdmYWEyMDBjN2ViYjI2OSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.o0lBSp1tL3aze0-IU_LRIwpUfqohZKdOzEiPy5xaHU0'
-        }
-    };
-
     fetch('https://api.themoviedb.org/3/movie/now_playing?language=es-MX&page=' + pagina.toString(), options)
         .then(response => response.json())
         .then(response => {
@@ -115,7 +107,7 @@ function validarRepeticionFav(codigo, favoritos) {
     }
 }
 
-function validar_y_Agregar_Peli(id, favoritos) {
+function validar_y_Agregar_Peli(id, favoritos) { //valido que la peli a agregar exista en la API y si existe, la agrego
     const options = {
         method: 'GET',
         headers: {
@@ -157,7 +149,7 @@ function agregarFav_codigo() { //agrega una pelicula a Favoritos ingresando el c
 function agregarFav_boton(boton) { //agrega una pelicula a Favoritos tocando el boton debajo de la peli
     let idPeliClickeada = boton.getAttribute('data-id-peli'); //consigo el numero de peli segun el atributo personalizado del boton Agregar a Fav
     let favoritos = traerFavoritosLocal(); //en common.js
-    
+
     if (validarRepeticionFav(idPeliClickeada, favoritos) !== 0) {
         validar_y_Agregar_Peli(idPeliClickeada, favoritos);
     }

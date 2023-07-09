@@ -18,19 +18,41 @@ function mostrarMensajeFavPersistente(mensaje) {
     mensaje.style.display = 'block';
 }
 
+function agregarVideosFav() { //agrega un video a cada pelicula de favoritos
+    let divsPelisFav = Array.from(contenedorPeliculasFavoritas.children).filter(function (elemento) { //selecciona sólo los div que son hijos directos, no los internos
+        return elemento.tagName === 'DIV';
+    });
+
+    // Iterar sobre los divs y encontrar el elemento con el valor deseado
+    divsPelisFav.forEach(function (div) {
+        console.log(div);
+        let idFavorita = div.getAttribute('data-id-fav');
+
+        fetch('https://api.themoviedb.org/3/movie/' + idFavorita + '/videos?language=es-MX', options)
+            .then(response => response.json())
+            .then(response => {
+                console.log(response)
+                if (response.results.length > 0) {
+                    let YouTubeKey = response.results[0].key; //guardo la llave para acceder al video de YouTube
+                    let iframe = div.querySelector('iframe');
+                    iframe.style.display = 'block';
+                    iframe.width = '340';
+                    iframe.height = '200';
+                    iframe.src = 'https://www.youtube-nocookie.com/embed/' + YouTubeKey; //armo el link con la key del video
+                    iframe.title = 'YouTube video player';
+                    iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
+                    iframe.allowFullscreen = true;
+                }
+            })
+            .catch(error => console.error(error));
+    });
+}
 
 async function mostrarFavoritas() {
     mostrarSpinner(spinnerDivFavoritos); //muestro mensaje y spinner de carga
     let favoritos = traerFavoritosLocal();
     if (favoritos.length > 0) {
         for (let i = 0; i < favoritos.length; i++) { //recorro cada peli de FAVORITOS y la traigo con fetch
-            const options = {
-                method: 'GET',
-                headers: {
-                    accept: 'application/json',
-                    Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIxNGMzYzVmYTllZDg0NjRlOTg1YjAzZGJiNTM3ZGE1ZCIsInN1YiI6IjY0YTYxOGVmMDdmYWEyMDBjN2ViYjI2OSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.o0lBSp1tL3aze0-IU_LRIwpUfqohZKdOzEiPy5xaHU0'
-                }
-            };
 
             try {
                 const response = await fetch('https://api.themoviedb.org/3/movie/' + favoritos[i] + '?language=es-MX&append_to_response=' + favoritos[i], options);
@@ -47,6 +69,7 @@ async function mostrarFavoritas() {
 
                 const divPelicula = document.createElement('div');
                 divPelicula.classList.add('pelicula');
+                divPelicula.setAttribute('data-id-fav', id);
                 divPelicula.innerHTML = `
                     <img class="poster" src="https://image.tmdb.org/t/p/w500/${poster_path}">
                     <h3 class="titulo">${title}</h3>
@@ -56,16 +79,19 @@ async function mostrarFavoritas() {
                         <b>Idioma original:</b> ${original_language}<br>
                         <b>Resumen:</b> ${overview}<br></p>
                     </div>
-                    <button class="button" data-nro-peli="${i}" data-id-peli="${id}" onclick="quitarFav(this)">Quitar de Favoritos</button>
+                    <div class="videosFav">
+                    <iframe style="display: none;"></iframe>
+                    </div>
+                    <button class="button" onclick="quitarFav(this)">Quitar de Favoritos</button>
                 `;
                 contenedorPeliculasFavoritas.appendChild(divPelicula); //le agrego el div con la pelicula favorita al contenedor
             } catch (error) {
                 console.error(error);
                 mostrarMensajeFavoritos(msjErrorConsulta);
-            } finally {
-                eliminarSpinner(spinnerDivFavoritos, contenedorPeliculasFavoritas); //elimino el mensaje de carga porque pude solicitar las pelis (ver common.js)
             }
         }
+        eliminarSpinner(spinnerDivFavoritos, contenedorPeliculasFavoritas); //elimino el mensaje de carga porque pude solicitar las pelis (ver common.js)
+        agregarVideosFav(); //le agrego un video a cada peli favorita
     } else {
         eliminarSpinner(spinnerDivFavoritos, contenedorPeliculasFavoritas);
         setTimeout(mostrarMensajeFavPersistente, 3000, msjEmptyFavs);
