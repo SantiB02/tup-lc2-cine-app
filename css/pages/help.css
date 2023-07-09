@@ -40,6 +40,11 @@
     width: 300px;
 }
 
+.asteriscos {
+    color: red;
+    font-family: sans-serif;
+}
+
 #botones-form {
     margin-top: 15px;
 }

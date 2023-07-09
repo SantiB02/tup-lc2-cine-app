@@ -6,6 +6,7 @@ const msjExito = document.getElementById('msjExito');
 const msjErrorConsulta = document.getElementById('msjErrorConsulta');
 const msjErrorNumerico = document.getElementById('msjErrorNumerico');
 const msjPeliExistente = document.getElementById('msjPeliExistente');
+const nroPaginacion = document.getElementById('nroPaginacion');
 let pagina = 1; //pagina en la que estoy (para paginacion)
 
 function statusBtnAnterior(pag) {
@@ -22,6 +23,7 @@ function requestCartelera(pagina = 1) { //por defecto es 1
     contenedorPeliculas.innerHTML = ''; //vacío el contenedor de peliculas por si ya había pelis de otra página
     mostrarSpinner(spinnerDivCartelera); //muestro mensaje y spinner de carga
     statusBtnAnterior(pagina); //habilito o deshabilito el boton anterior
+    nroPaginacion.innerText = pagina; //actualizo el contador de número de pagina (en paginación)
 
     fetch('https://api.themoviedb.org/3/movie/now_playing?language=es-MX&page=' + pagina.toString(), options)
         .then(response => response.json())
