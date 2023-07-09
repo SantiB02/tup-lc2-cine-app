@@ -58,7 +58,7 @@ async function mostrarFavoritas() {
                 const response = await fetch('https://api.themoviedb.org/3/movie/' + favoritos[i] + '?language=es-MX&append_to_response=' + favoritos[i], options);
                 const pelicula = await response.json();
                 console.log(pelicula);
-                contenedorPeliculasFavoritas.style.display = 'none';
+                contenedorPeliculasFavoritas.style.display = 'none'; //oculto el contenedor para que se solo se vea el spinner
 
                 let poster_path = pelicula.poster_path;
                 let title = pelicula.title;
@@ -90,7 +90,7 @@ async function mostrarFavoritas() {
                 mostrarMensajeFavoritos(msjErrorConsulta);
             }
         }
-        eliminarSpinner(spinnerDivFavoritos, contenedorPeliculasFavoritas); //elimino el mensaje de carga porque pude solicitar las pelis (ver common.js)
+        eliminarSpinner(spinnerDivFavoritos, contenedorPeliculasFavoritas); //elimino el mensaje de carga porque pude solicitar las pelis (ver common.js) y muestro pelis
         agregarVideosFav(); //le agrego un video a cada peli favorita
     } else {
         eliminarSpinner(spinnerDivFavoritos, contenedorPeliculasFavoritas);

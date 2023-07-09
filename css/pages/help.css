@@ -14,25 +14,39 @@
     padding: 8px;
 }
 
-#help-form {
+#contact-form {
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: left;
+    margin-top: 20px;
 }
 
-#help-form textarea {
+#contact-form .inputForm {
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+}
+
+#contact-form textarea {
     height: 150px;
 }
 
-#help-form input {
+#contact-form input {
     height: 25px;
 }
 
-#help-form input, #help-form textarea {
+#contact-form input, #contact-form textarea {
     width: 300px;
 }
 
 #botones-form {
     margin-top: 15px;
+}
+
+#sec-cine-result {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
 }

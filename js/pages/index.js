@@ -27,7 +27,7 @@ function requestCartelera(pagina = 1) { //por defecto es 1
         .then(response => response.json())
         .then(response => {
             console.log(response);
-            contenedorPeliculas.style.display = 'none';
+            contenedorPeliculas.style.display = 'none'; //oculto el contenedor para que se solo se vea el spinner
 
             for (let i = 0; i < response.results.length; i++) {
                 pelicula = response.results[i];
@@ -64,7 +64,7 @@ function requestCartelera(pagina = 1) { //por defecto es 1
             seccionMensajes.style.display = 'flex';
         })
         .finally(() => {
-            eliminarSpinner(spinnerDivCartelera, contenedorPeliculas); //elimino el mensaje de carga porque pude solicitar las pelis (ver common.js)
+            eliminarSpinner(spinnerDivCartelera, contenedorPeliculas); //elimino el mensaje de carga porque pude solicitar las pelis (ver common.js) y muestro contenedor
         });
 }
 
@@ -153,5 +153,5 @@ function agregarFav_boton(boton) { //agrega una pelicula a Favoritos tocando el 
     if (validarRepeticionFav(idPeliClickeada, favoritos) !== 0) {
         validar_y_Agregar_Peli(idPeliClickeada, favoritos);
     }
-    window.scrollTo({ top: 0, behavior: 'smooth' }); //sube la vista hacia el top para que el usuario vea el mensaje
+    window.scrollTo({top: 0, behavior: 'smooth'}); //sube la vista hacia el top para que el usuario vea el mensaje
 }

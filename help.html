@@ -8,6 +8,7 @@
   <!-- Estilos CSS -->
   <link rel="stylesheet" href="css/common.css"/>
   <link rel="stylesheet" href="css/pages/help.css"/>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js" defer></script>
   <script src="js/common.js" defer></script>
   <script src="js/pages/help.js" defer></script>
 </head>
@@ -41,18 +42,19 @@
     </section>
     <section id="form-cine_contacto">
       <!-- Sección donde se debe colocar el formulario de contacto-->
-      <form id="help-form">
-        <div>
-          <p><label for="nombre"><b>Nombre:</b></label></p>
-          <input type="text" name="datos" id="nombre">
+      <form id="contact-form" novalidate>
+        <input type="hidden" name="contact_number">
+        <div class="inputForm">
+          <label for="nombre"><b>Nombre:</b></label>
+          <input type="text" name="user_name" id="nombre">
         </div>
-        <div>
-          <p><label for="email"><b>Email:</b></label></p>
-          <input type="email" name="datos" id="email">
+        <div class="inputForm">
+          <label for="email"><b>Email:</b></label>
+          <input type="email" name="user_email" id="email">
         </div>
-        <div>
-          <p><label for="texto"><b>Mensaje:</b></label></p>
-          <textarea name="texto" id="texto"></textarea>
+        <div class="inputForm">
+          <label for="texto"><b>Mensaje:</b></label>
+          <textarea name="message" id="texto" required></textarea>
         </div>
         <div id="botones-form">
           <button type="reset">Limpiar</button>
@@ -60,8 +62,11 @@
         </div>
       </form>
     </section>
-    <section id="sec-cine-result"></section>
+    <section id="sec-cine-result">
     <!-- Sección donde se debe mostrar los mensajes de error -->
+    <p class="mensaje-success mensajes" id="msjFormEnviado" style="display: none;">Formulario enviado con éxito</p>
+    <p class="mensaje-error mensajes" id="msjErrorEmail" style="display: none;">Ingrese un Email válido</p>
+    <p class="mensaje-error mensajes" id="msjErrorTexto" style="display: none;">Ingrese un Mensaje</p>
     </section>
     <p></p>
   </main>
