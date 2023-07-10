@@ -110,14 +110,6 @@ function validarRepeticionFav(codigo, favoritos) {
 }
 
 function validar_y_Agregar_Peli(id, favoritos) { //valido que la peli a agregar exista en la API y si existe, la agrego
-    const options = {
-        method: 'GET',
-        headers: {
-            accept: 'application/json',
-            Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIxNGMzYzVmYTllZDg0NjRlOTg1YjAzZGJiNTM3ZGE1ZCIsInN1YiI6IjY0YTYxOGVmMDdmYWEyMDBjN2ViYjI2OSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.o0lBSp1tL3aze0-IU_LRIwpUfqohZKdOzEiPy5xaHU0'
-        }
-    };
-
     fetch('https://api.themoviedb.org/3/movie/' + id.toString() + '?language=es-MX&append_to_response=' + id.toString(), options)
         .then(response => {
             if (response.ok) {
