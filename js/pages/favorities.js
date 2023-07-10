@@ -25,13 +25,11 @@ function agregarVideosFav() { //agrega un video a cada pelicula de favoritos
 
     // Iterar sobre los divs y encontrar el elemento con el valor deseado
     divsPelisFav.forEach(function (div) {
-        console.log(div);
         let idFavorita = div.getAttribute('data-id-fav');
 
         fetch('https://api.themoviedb.org/3/movie/' + idFavorita + '/videos?language=es-MX', options)
             .then(response => response.json())
             .then(response => {
-                console.log(response)
                 if (response.results.length > 0) {
                     let YouTubeKey = response.results[0].key; //guardo la llave para acceder al video de YouTube
                     let iframe = div.querySelector('iframe');
@@ -107,7 +105,6 @@ function quitarFav(boton) {
     favoritos.splice(indiceBorrar, 1); //borro el id del arreglo de favoritos en la posicion de la peli a borrar
     guardarFavoritosLocal(favoritos);
     divBorrar.remove(); //borro la película a la que corresponde el boton Quitar
-    console.log(favoritos); //test
     if (favoritos.length === 0) {
         mostrarMensajeFavPersistente(msjEmptyFavs);
     }
