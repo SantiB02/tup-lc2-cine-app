@@ -181,6 +181,9 @@ main section {
   margin: 0px;
 }
 footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   position: fixed;
   bottom: 0px;
   background-color: var(--color-active);
@@ -193,6 +196,22 @@ footer p {
   font-size: small;
   color: var(--color-theme);
   background-color: var(--color-active);
+}
+footer a {
+  font-size: small;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: var(--color-texto-blanco);
+  transition-duration: 100ms;
+  transition-timing-function: ease-in;
+}
+footer a img {
+  width: 20px;
+  margin-left: 7px;
+}
+footer a:hover {
+  color: #154cba;
 }
 main p {
   margin-bottom: 16px;
